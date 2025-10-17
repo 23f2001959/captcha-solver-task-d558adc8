@@ -1,9 +1,9 @@
-# Captcha Solver Task
+# Captha-Solver-Task
 
-This project is a robust captcha solver that can recognize and solve text-based captchas from images using basic OCR techniques. It accepts base64 encoded image inputs, accurately extracts the captcha text, and returns the decoded answer as plain text. The system implements error handling for unclear or noisy images and uses Python with commonly used OCR libraries like Tesseract.
+## Summary
+Captha-Solver-Task is a Python-based project that aims to develop a robust captcha solver using basic OCR techniques. The system is designed to recognize and solve text-based captchas from images by accepting base64 encoded inputs and returning the decoded answers as plain text. The project incorporates error handling for unclear or noisy images to ensure accurate results using commonly used OCR libraries like Tesseract.
 
 ## Setup
-
 1. Clone the repository:
 ```bash
 git clone https://github.com/your-username/captcha-solver-task.git
@@ -14,21 +14,21 @@ git clone https://github.com/your-username/captcha-solver-task.git
 pip install -r requirements.txt
 ```
 
-## Usage
-
-1. Run the following command to start the captcha solver:
+3. Run the program:
 ```bash
-python solver.py
+python captcha_solver.py
 ```
 
-2. Upload a base64 encoded image and wait for the system to recognize and solve the captcha.
+## Usage
+To use the captcha solver, follow these steps:
+1. Encode your captcha image to base64.
+2. Input the base64 encoded image into the program.
+3. The program will extract and display the captcha text.
 
 ## Code Explanation
-
-- `solver.py`: This script contains the main functionality of the captcha solver. It takes a base64 encoded image input, processes it using OCR techniques, and returns the decoded answer.
-
-- `utils.py`: This file contains utility functions for handling base64 encoding and error handling for unclear or noisy images.
+- `captcha_solver.py`: The main script that contains the implementation of the captcha solver using OCR techniques.
+- `utils.py`: Contains utility functions for handling base64 encoding and error handling for noisy images.
+- `requirements.txt`: Lists the required dependencies for the project.
 
 ## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
