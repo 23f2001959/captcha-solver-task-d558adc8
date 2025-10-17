@@ -1,39 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Captcha Solver</title>
-  <script src="https://cdn.jsdelivr.net/npm/tesseract.js/dist/tesseract.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    input[type="text"] {
+      padding: 5px;
+      margin-right: 10px;
+    }
+    button {
+      padding: 5px 10px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
 </head>
-
 <body>
   <h1>Captcha Solver</h1>
-  <input type="file" accept="image/*" id="imageInput">
+  <p>Submit a base64 encoded captcha image:</p>
+  <input type="text" id="captchaInput" placeholder="Enter base64 encoded image">
   <button onclick="solveCaptcha()">Solve Captcha</button>
-  <p id="captchaText"></p>
+  <p id="captchaResult"></p>
 
+  <script src="https://cdn.jsdelivr.net/npm/@tesseract.js"></script>
   <script>
     async function solveCaptcha() {
-      const imageInput = document.getElementById("imageInput");
-      const imageFile = imageInput.files[0];
-
-      const worker = createWorker({
-        logger: m => console.log(m),
-      });
-
-      await worker.load();
-      await worker.loadLanguage('eng');
-      await worker.initialize('eng');
-      const { data: { text } } = await worker.recognize(imageFile);
-
-      document.getElementById("captchaText").innerText = text;
-      await worker.terminate();
+      const captchaInput = document.getElementById('captchaInput').value;
+      const captchaImage = document.createElement('img');
+      captchaImage.src = 'data:image/jpeg;base64,' + captchaInput;
+      
+      const { data: { text } } = await Tesseract.recognize(
+        captchaImage,
+        'eng',
+        { logger: m => console.log(m) }
+      );
+      
+      document.getElementById('captchaResult').innerText = text;
     }
   </script>
-
 </body>
-
 </html>
