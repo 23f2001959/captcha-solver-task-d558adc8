@@ -1,27 +1,34 @@
 # Captcha Solver Task
 
-## Summary
-This project aims to develop a robust captcha solver that can recognize and solve text-based captchas from images using basic Optical Character Recognition (OCR) techniques. The system should accept base64 encoded image inputs, accurately extract the captcha text, and return the decoded answer as plain text. Error handling is implemented for unclear or noisy images. Python is used along with commonly used OCR libraries like Tesseract.
+This project is a robust captcha solver that can recognize and solve text-based captchas from images using basic OCR techniques. It accepts base64 encoded image inputs, accurately extracts the captcha text, and returns the decoded answer as plain text. The system implements error handling for unclear or noisy images and uses Python with commonly used OCR libraries like Tesseract.
 
 ## Setup
-1. Install Python if not already installed.
-2. Install the required libraries by running `pip install -r requirements.txt`.
-3. Clone the repository using `git clone https://github.com/yourusername/captcha-solver-task.git`.
+
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/captcha-solver-task.git
+```
+
+2. Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
 
 ## Usage
-1. Encode the captcha image to base64 format.
-2. Use the `captcha_solver.py` script with the base64 encoded image as input.
-3. The script will output the decoded captcha text.
 
-Example:
+1. Run the following command to start the captcha solver:
+```bash
+python solver.py
 ```
-python captcha_solver.py --image base64_encoded_image.txt
-```
+
+2. Upload a base64 encoded image and wait for the system to recognize and solve the captcha.
 
 ## Code Explanation
-The `captcha_solver.py` script uses the Tesseract OCR library to extract text from the input image. It preprocesses the image by applying filters and transformations to improve OCR accuracy. Error handling is implemented to handle cases where the image is unclear or noisy. The decoded text is then outputted as plain text.
+
+- `solver.py`: This script contains the main functionality of the captcha solver. It takes a base64 encoded image input, processes it using OCR techniques, and returns the decoded answer.
+
+- `utils.py`: This file contains utility functions for handling base64 encoding and error handling for unclear or noisy images.
 
 ## License
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). See the `LICENSE` file for more details.
 
-Feel free to contribute to the project by submitting pull requests or reporting issues. Thank you for using the Captcha Solver Task!
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
